@@ -1,0 +1,14 @@
+<div class="clearfix">
+  <div class="col-sm-3">
+    <h5>Trending Stories</h5>
+    <ng-include ng-repeat="post in trending_posts" src="'mini-post.html'"></ng-include>
+  </div>
+  <div class="col-sm-6">
+    <h5>Top Stories</h5>
+    <ng-include ng-repeat="post in top_posts" src="'post.html'"></ng-include>
+  </div>
+  <div class="col-sm-3">
+    <h5>Trending Journalists</h5>
+    <ng-include ng-repeat="journalist in trending_journalists" src="'journalist.html'"></ng-include>
+  </div>
+</div>

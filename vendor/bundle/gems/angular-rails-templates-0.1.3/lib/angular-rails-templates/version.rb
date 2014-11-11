@@ -1,3 +1,3 @@
-module AngularRailsTemplates
+module CrowdNewsTemplates
   VERSION = '0.1.3'
 end

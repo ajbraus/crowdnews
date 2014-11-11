@@ -1,0 +1,10 @@
+<a href='/story/{{post.id}}'>
+  <h3>{{post.title}}</h3>
+  <img ng-src="{{post.pic_url}}" width="100%"/>
+</a>
+<div class='text-right'>
+  <small class='text-muted text-right'><a href='/user/{{post.user.id}}'>{{post.user.name}}</a> - {{post.published_at}}</small>
+</div>
+<h5>{{post.subtitle}}</h5>
+<p>{{post.body}}</p>
+<hr>

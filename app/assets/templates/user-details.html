@@ -1,0 +1,28 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-sm-offset-1">
+      <img ng-src="{{user.pic_url}}" class="img-rounded" width="80%">
+      <h3>{{user.name}}</h3>
+      <p class="text-muted">
+        {{user.backers_count}} backers<br>
+        {{user.earnings_range}} per article <br>
+        <span ng-repeat="tag in user.tags">
+          <a href="#">#{{tag.name}}</a>,
+        </span>
+      </p>
+      <a href="#" class="btn btn-primary btn-lg btn-block">Back {{user.name}}</a>
+      <hr>
+      <h4>Stories</h4>
+      <div ng-repeat="post in user.posts">
+        {{post.title}}
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <b>Bio</b>
+      <p>{{user.bio}}</p>
+      <hr>
+      <ng-include ng-repeat="post in user.posts" src="'post.html'"></ng-include>
+    </div>
+  </div>
+</div>

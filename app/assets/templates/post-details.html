@@ -1,0 +1,17 @@
+<div class="col-sm-3">
+  <h5>Similar Stories</h5>
+  <ng-include ng-repeat="post in similar_posts" src="'mini-post.html'"></ng-include>
+</div>
+<div class="col-sm-6">
+  <h2>{{post.title}}</h2>
+  <img ng-src="{{post.pic_url}}" width="100%"/>
+  <div class='text-right'>
+    <small class='text-muted text-right'><a href='/user/{{post.user.id}}'>{{post.user.name}}</a> - {{post.published_at}}</small>
+  </div>
+  <h4>{{post.subtitle}}</h4>
+  <p>{{post.body}}</p>
+</div>
+<div class="col-sm-3">
+  <h5>Similar Journalists</h5>
+  <ng-include ng-repeat="journalist in similar_journalists" src="'journalist.html'"></ng-include>
+</div>

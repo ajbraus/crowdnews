@@ -1,6 +1,6 @@
 require 'tilt'
 
-module AngularRailsTemplates
+module CrowdNewsTemplates
   class Engine < ::Rails::Engine
     config.angular_templates = ActiveSupport::OrderedOptions.new
     config.angular_templates.module_name    = 'templates'
@@ -50,7 +50,7 @@ module AngularRailsTemplates
         end
 
         # This engine wraps the HTML into JS
-        app.assets.register_engine '.html', AngularRailsTemplates::Template
+        app.assets.register_engine '.html', CrowdNewsTemplates::Template
       end
 
       # Sprockets Cache Busting

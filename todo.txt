@@ -1,0 +1,14 @@
+DONE add bootstrap
+DONE sticky footer not sticking
+DONE user details page
+DONE make services.js work
+make post-detail.html
+  add share on FB, twitter, buttons
+make tag-detail.html
+
+setup rails API
+  resource posts
+  devise
+  resource users
+
+Setup stripe

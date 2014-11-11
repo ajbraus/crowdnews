@@ -1,6 +1,6 @@
 require 'angular-rails-templates/compact_javascript_escape'
 
-module AngularRailsTemplates
+module CrowdNewsTemplates
   class Template < ::Tilt::Template
     include CompactJavaScriptEscape
     AngularJsTemplateWrapper = Tilt::ERBTemplate.new "#{File.dirname __FILE__}/javascript_template.js.erb"

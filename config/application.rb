@@ -6,8 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module AngularRails2
+module CrowdNews2
   class Application < Rails::Application
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
