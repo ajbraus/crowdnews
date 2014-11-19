@@ -1,14 +1,93 @@
+add register/login
+  after login/signup does not look loggedin until refresh
+  add logout method to navbar dropdown
+  not responding to logging in or logging out - ideally does not reload
+
+register as journalist
+create "Journalist Account Access Page"
+  edit profile
+  see traction graphs dashboard - referral channels, total impressions, # backers, $ per article, # share backers
+  saved articles
+  published articles
+
+make cursor and text highlight brand color
+
+post-new.html
+  publish vs. save
+  http://ngmodules.org/modules/ngTagsInput
+dashboard 
+
+post-detail.html
+  make post-detail more like medium + upworthy/kickstarter project
+    - put similar articles at the bottom
+    - put other articles by same author on side, put author on the side
+    - maybe post-detail is just user-detail and then autoscroll to the article
+    - maybe change the header . . .
+  add share on FB, twitter, buttons
+tag-detail.html
+
+create journalist
+  - request invitation
+    - must have added twitter
+  - accept/reject
+
+setup rails API
+  DONE resource posts
+  DONE resource users
+  DONE posts have many tags
+  devise almost
+  users are backers when they subscribe to journalists
+  Setup stripe
+
+  users follow tags
+  email digests - "immediate, daily, weekly"     
+
+add pic & video to post
+forgot password
+add delayed job
+
+pre-launch splashpage - kickstarter?
+
+nice angular validation to every form
+respond with error messages from server for every error
+
+SEO -
+  '/story/first-5-words-of-the-title-and-first-3-tags'
+  '/journalist/first-last-name-first-3-tags'
+  rails/angular sitemap
+
+like posts
+back journalists
+journalists set goals
+journalist's backers and post's views sparklines
+after post is created send out notification to backers - could be weekly digest - go to ereader?
+set news alerts
+make searches into news alerts
+get news alerts from backed journalists
+
+
 DONE add bootstrap
 DONE sticky footer not sticking
 DONE user details page
 DONE make services.js work
-make post-detail.html
-  add share on FB, twitter, buttons
-make tag-detail.html
+DONE login modal
+DONE sign up modal
+DONE request invitation modal
 
-setup rails API
-  resource posts
-  devise
-  resource users
+DONE logout
 
-Setup stripe
+
+http://flowjs.github.io/ng-flow/ - gallery of images upload
+http://ngmodules.org/modules/angular-rickshaw
+http://cmaurer.github.io/angularjs-nvd3-directives/sparkline.chart.html
+
+
+I am a journalist with story, and I have 300 backers who give me on average $200 an article I write. I like to write once every two weeks for extra income. I can visit my profile page and make edits to my profile and track the success of my recent posts. I've been trying different ways to improve my traffic. 50 of my backers are 'share backers' so when I post I always get about 300 impressions. 
+
+Today I want to make a new post. I login, go to my profile and from there I can see posts I've published and those that aren't published yet. I select "New Story" and write a title, and an image I think I have the rights to, on second thought I remove the picture. I actually want to add a gallery of images.
+
+
+
+
+
+

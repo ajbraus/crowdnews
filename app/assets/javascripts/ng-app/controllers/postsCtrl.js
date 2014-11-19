@@ -1,54 +1,56 @@
 angular.module('CrowdNews')
-    .controller('PostIndexCtrl', function ($scope) {
-        $scope.top_posts = [
-          {'id':1,
-           'title':"Awesome Sauce",
-           'subtitle':"because I says so",
-           'pic_url': 'http://upload.wikimedia.org/wikipedia/commons/3/31/NTS_-_BEEF_-_WATUSI.jpg',
-           'published_at': "3:33pm Tuesday Nov 15th 2014",
-           'body':"lorem ipsum",
-           'user': {
-             'id':100,
-             'name':'Adam Braus',
-             'pic_url': 'http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg',
-           }
-          }
-        ]
-        $scope.trending_journalists = [
-          {'id':100,
-           'name':'Adam Braus',
-           'pic_url': 'http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg',
-           'backers_count': 25,
-           'bio': 'I am awesome',
-           'tags': [
-              {'id': 1, 'name': 'Wealth Inequality'},
-              {'id': 2, 'name': 'Prison Reform'},
-              {'id': 3, 'name': 'Enviornmental Issues'},
-              {'id': 4, 'name': 'USA'}
-           ],
-           'earnings_range':'$25-199'}
-        ]
-        $scope.trending_posts = [
-          {'title':"Awesome Sauce",
-           'published_at': "3:33pm Tuesday Nov 15th 2014",
-           'body':"lorem ipsum"}
-        ]
+    .controller('PostIndexCtrl', function ($scope, Post, User, current_user) {
+        var get_data = function() {
+            $scope.current_user = current_user;
+            $scope.top_posts = Post.query();
+            $scope.trending_journalists = User.query({'kind':"trending_journalists"});
+            $scope.trending_posts = Post.query();
+        }
+        $scope.$on('app.loggedIn', function (event, data) { get_data() });
+        $scope.$on('app.loggedOut', function (event, data) { get_data() });
     })
 
-    .controller('PostDetailsCtrl', function ($scope, Post) {
-        $scope.post = {
-           'id':1,
-           'title':"Awesome Sauce",
-           'subtitle':"because I says so",
-           'pic_url': 'http://upload.wikimedia.org/wikipedia/commons/3/31/NTS_-_BEEF_-_WATUSI.jpg',
-           'published_at': "3:33pm Tuesday Nov 15th 2014",
-           'body':"lorem ipsum",
-           'user': {
-             'id':100,
-             'name':'Adam Braus',
-             'pic_url': 'http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg',
-           }
-         }
-         $scope.similar_posts = [];
-         $scope.similar_journalists = [];
+    .controller('PostDetailsCtrl', function ($scope, $routeParams, Post, User, current_user) {
+        $scope.current_user = current_user;
+        $scope.post = Post.get({ id: $routeParams.postId });
+        $scope.similar_posts = Post.query(); // Post.query({ post_id: $routeParams.postId });
+        $scope.similar_journalists = User.query(); // User.query({ post_id: $routeParams.postId });
+    })
+
+    .controller('NewPostCtrl', function ($scope, $location, Post, current_user) {
+        $scope.alerts = [];
+        $scope.post = {}
+        $scope.publish = false
+        $scope.post.customMenu = [
+                [ 'quote', 'link'],
+                ['indent', 'outdent'],
+                ['bold', 'italic', 'underline','subscript', 'superscript'], 
+                ['ordered-list', 'unordered-list'],
+                ['remove-format']
+            ];
+        $scope.createPost = function() {
+            if ($scope.publish) {
+                $scope.published_at = new Date();
+            }
+            Post.save({}, $scope.post,
+                function (data) {
+                    $location.path('/');
+                    var message = 'Story Saved successfully!'
+                    console.log(message);
+                    $scope.alerts = [];
+                    $scope.alerts.push({type: "success", msg: message});
+                },
+                function (data) {
+                    var message = 'There was a problem posting your Coride. Please try again.'
+                    console.log(message);
+                    $scope.alerts.push({type: "danger", msg: message});
+                })
+        }
+    })
+
+    .controller('PostDetailsCtrl', function ($scope, $routeParams, Post, User, current_user) {
+        $scope.current_user = current_user;
+        $scope.post = Post.get({ id: $routeParams.postId });
+        $scope.similar_posts = Post.query(); // Post.query({ post_id: $routeParams.postId });
+        $scope.similar_journalists = User.query(); // User.query({ post_id: $routeParams.postId });
     });

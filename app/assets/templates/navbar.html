@@ -1,0 +1,125 @@
+<div class="clearfix">
+  <div class='col-xs-12'>
+    <h4 class='text-muted pull-left'>
+      <b><a href="/">CrowdNews.com</a></b><br>
+      News by Independent Investagive <a href="/journalists">Journalists</a>, Backed by the Crowd
+    </h4>
+    <h4 class="pull-right">
+      <br>
+      <digital-clock></digital-clock>
+    </h4>
+    <br>
+    <br>
+  <!--   <h1 class="insane text-center">TODAY'S HEADER</h1> --> 
+  </div>
+</div>
+
+<div class="top-nav" ng-controller="NavbarCtrl">
+  <ul class="nav navbar-nav navbar-right">
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+    </form>
+    <li ng-show="current_user"><a href="/new/story">New Post</a></li>
+
+    <li ng-hide="current_user"><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+    <li ng-hide="current_user" ng-hide="current_user"><a href="#" data-toggle="modal" data-target="#signUpModal">Sign Up</a></li>
+    <li class="dropdown" ng-show="current_user">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Notification Settings</a></li>
+        <li class="divider"></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="#" ng-click="newRequest()">Become a CN Journalist</a></li>
+        <li class="divider"></li>
+        <li ><a href="#" ng-click="logout()">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</div><!-- /.navbar-collapse -->
+
+<div ng-controller="AlertCtrl">
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+</div>
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="LoginCtrl">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Login</h4>
+      </div>
+      <form ng-submit="login()">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" ng-model="session.email" class="form-control" required/>
+          </div>
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" ng-model="session.password" class="form-control" required/>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input ng-model="session.remember_me" type="checkbox" checked> Remember me
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="Submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="SignUpCtrl">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create Account</h4>
+      </div>
+      <form ng-submit="signUp()">
+        <div class="modal-body">
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="">First Name</label>
+              <input type="text" ng-model="registration.first_name" class="form-control"/>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="">Last Name</label>
+              <input type="text" ng-model="registration.last_name" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" ng-model="registration.email" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" ng-model="registration.password" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="">Confirm Password</label>
+            <input type="password" ng-model="registration.confirm" class="form-control"/>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input ng-model="registration.remember_me" type="checkbox" checked> Remember me
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="Submit" class="btn btn-primary">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

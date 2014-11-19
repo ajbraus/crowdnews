@@ -5,11 +5,65 @@
     font-style: normal;
 }
 
+::-moz-selection { /* Code for Firefox */
+    color: grey;
+    background: rgba(200, 200, 200, .5);
+}
+
+::selection {
+    color: grey; 
+    background: rgba(200, 200, 200, .5);
+}
+
+
 .insane {
   font-family:'heavyweight';
   font-size:1000%;
 }
 
-.navbar {
-  border-radius: 0;
+.top-nav {
+  position: absolute;
+  top: -11px;
+  right: 15px;
 }
+
+.footer {
+  border-top:1px solid #eee;
+  padding:20px 20px;
+  margin-bottom: 100px;
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.post-body {
+  height:500px !important;
+  border:none;
+  width:100%;
+  border-left:1px solid #eee;
+  margin-top:10px;
+  padding:10px;
+}
+
+.post-title {
+  width: 100%;
+  padding: 5px 9px 0 9px;
+  font-size: 35px;
+  border: none;
+}
+.post-subtitle {
+  width: 100%;
+  padding: 5px 9px 0 9px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+}
+
+.post-body:focus, .post-subtitle:focus, .post-title:focus { 
+  border-bottom: 1px solid #eee;
+  outline: none; 
+}
+
+

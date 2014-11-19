@@ -17,6 +17,11 @@
       <div ng-repeat="post in user.posts">
         {{post.title}}
       </div>
+      <hr>
+      <h4>Backers</h4>
+      <div ng-repeat="backer in user.backers">
+        {{backer.name}}
+      </div>
     </div>
     <div class="col-sm-7">
       <b>Bio</b>

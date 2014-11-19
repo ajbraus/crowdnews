@@ -1,0 +1,68 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <img ng-src="{{current_user.pic_url}}" class="img-rounded" width="80%">
+      <h3>{{current_user.name}}</h3>
+      <p class="text-muted">
+        <span ng-repeat="tag in current_user.tags">
+          <a href="#">#{{tag.name}}</a>,
+        </span>
+      </p>
+      <a href="/new/story" class="btn btn-primary btn-lg btn-block">New Story</a>
+    </div>
+    <div class="col-sm-9">
+      <div class="row">
+        <div class='col-xs-4'>
+          <h2>23 <br><small>Backers</small></h2>
+        </div>
+        <div class='col-xs-4'>
+          <h2>$34 <br><small>Per Story</small></h2>
+        </div>
+        <div class='col-xs-4'>
+          <h2>23 <br><small>Share Backers</small> </h2>
+        </div>
+        <div class='col-xs-4'>
+          <h2>6,000 <br><small>Estimated Audience</small> </h2>
+        </div>
+        <div class='col-xs-4'>
+          <h2>4,000 <br><small>Sept Impressions</small> </h2>
+        </div>
+        <div class='col-xs-4'>
+          <h2>4,000 <br><small>Oct Impressions</small> </h2>
+        </div>
+        <div class='col-xs-4'>
+          <h2>4,000 <br><small>Nov Impressions</small> </h2>
+        </div>
+        <div class='col-xs-4'>
+          <h2>10% <br><small>% Above Estimate (i.e. how much they are promoting)</small> </h2>
+        </div>
+      </div>
+      <hr>
+      <h4>Stories</h4>
+      <table class="table table-hover">
+        Published
+        <tr>
+          <th>Title</th>
+          <th>Last Touched</th>
+        </tr>
+        <tr ng-repeat="post in current_user.posts | filter:{ published: true }">
+          <td>{{post.title}}</td>
+          <td>{{post.updated_at}}</td>
+        </tr>
+      </table>
+      <table class="table table-hover">
+        Saved
+        <tr>
+          <th>Title</th>
+          <th>Last Touched</th>
+        </tr>
+        <tr ng-repeat="post in current_user.posts | filter:{ published: false }">
+          <td>{{post.title}}</td>
+          <td>{{post.updated_at}}</td>
+        </tr>
+      </table>
+      <ng-include ng-repeat="post in current_user.posts" src="'post.html'"></ng-include>
+    </div>
+  </div>
+</div>

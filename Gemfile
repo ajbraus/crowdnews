@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem "font-awesome-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
@@ -15,6 +15,48 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 gem 'thin'
+gem 'rabl'
+gem 'oj'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem "paperclip"#, "~> 3.0"
+gem 'aws-sdk'#, '~> 1.3.4'
+
+# gem 'sitemap_generator'
+# gem "hirefire-resource"
+# gem 'stripe'
+
+# gem 'airbrake'
+# gem 'newrelic_rpm'
+
+group :development do
+  gem 'pry'
+  gem 'pry-debugger'
+  gem 'populator'
+  gem 'powder'
+  gem 'powify'
+  gem 'pry-remote'
+  gem 'meta_request'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'email_spec'
+  gem 'guard-rspec'
+  # gem "spork", '~> 0.9.0.rc'
+  gem "spork-rails", github: 'sporkrb/spork-rails'
+  gem 'guard-spork'
+end
+
+group :development, :test do 
+  gem 'faker'
+  gem 'rspec-rails', '~> 2.10'
+  gem 'dotenv-rails'
+  gem 'fuubar'
+end
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'bootstrap-sass'
@@ -42,3 +84,6 @@ gem 'spring',        group: :development
 
 gem 'bower-rails'
 gem 'angular-rails-templates'
+
+gem 'rails_12factor', group: :production
+

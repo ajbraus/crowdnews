@@ -16,6 +16,8 @@
 //= require angular-route
 //= require angular-rails-templates
 //= require angular-resource
+//= require angular-bootstrap-colorpicker
+//= require angular-wysiwyg
+//= require ng-tags-input
 //= require_tree ../templates
-//= require_tree ./ng-app/services
 //= require_tree .
