@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111183547) do
+ActiveRecord::Schema.define(version: 20141120180242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 20141111183547) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "backer_id"
+    t.integer  "backed_user_id"
+    t.integer  "amount_in_cents"
+    t.integer  "max_in_cents"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["backed_user_id"], name: "index_subscriptions_on_backed_user_id", using: :btree
+  add_index "subscriptions", ["backer_id"], name: "index_subscriptions_on_backer_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

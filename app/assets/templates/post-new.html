@@ -24,10 +24,10 @@
         textarea-required 
         ng-model="post.body" 
         enable-bootstrap-title="true" 
-        textarea-menu="{{post.customMenu}}" 
+        textarea-menu="{{customMenu}}" 
         placeholder="Body (200 words minimum)">
       </wysiwyg>
-      <tags-input ng-model="tags" placeholder="Add Hashtags - 7 Max">
+      <tags-input ng-model="post.tag_list" placeholder="Add Hashtags - 7 Max">
           <!-- <auto-complete source="loadTags($query)"></auto-complete> -->
       </tags-input>
       <button type="submit" class='btn btn-primary'>

@@ -7,7 +7,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.where("published_at IS NOT NULL")
     return render 'api/v1/posts/index'
   end
 
@@ -17,11 +17,10 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def create
-    binding.pry
     @post = current_user.posts.new(post_params)
     if @post.save
       return render status: 200,
-             :json => { :success => true, :trip_id => @post.id}
+             :json => { :success => true, :post_id => @post.id}
     else
       return render status: 400,
              :json => { :success => false,
@@ -61,6 +60,8 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :subtitle, :body, :published_at, :video_url, :pic_url)
+    params[:post][:tag_list] = params[:tag_list].map { |t| t["text"] }.join(", ") if params[:tag_list].present?
+
+    params.require(:post).permit(:title, :subtitle, :body, :published_at, :video_url, :pic_url, :tag_list)
   end
 end

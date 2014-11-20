@@ -1,0 +1,15 @@
+<div class="media">
+  <a href='/journalist/{{journalist.id}}' class="media-left">
+    <img ng-src="{{journalist.pic_url}}" class="img-rounded" style="width:64px;">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">{{journalist.name}}</h4>
+    <p class="text-muted">
+      {{journalist.backers_count}} backers<br>
+      {{journalist.earnings_range}} per article <br>
+      <span ng-repeat="tag in journalist.tags">
+        <a href="#">#{{tag.name}}</a>,
+      </span>
+    </p>
+  </div>
+</div>

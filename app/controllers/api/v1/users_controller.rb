@@ -11,9 +11,6 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if current_user == @user
-      @show_posts = true
-    end
 
     render 'api/v1/users/show'
   end

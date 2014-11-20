@@ -5,6 +5,7 @@
       "angular": "latest",
       "angular-route": "latest",
       "angular-resource": "latest",
+      "angular-sanitize": "latest",
       "angular-wysiwyg": "latest",
       "ng-tags-input": "latest"
     }

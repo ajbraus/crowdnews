@@ -39,7 +39,7 @@
     </li>
   </ul>
 </div><!-- /.navbar-collapse -->
-
+<hr>
 <div ng-controller="AlertCtrl">
   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 </div>

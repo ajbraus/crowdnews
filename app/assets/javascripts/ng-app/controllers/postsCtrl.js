@@ -8,6 +8,7 @@ angular.module('CrowdNews')
         }
         $scope.$on('app.loggedIn', function (event, data) { get_data() });
         $scope.$on('app.loggedOut', function (event, data) { get_data() });
+        get_data();
     })
 
     .controller('PostDetailsCtrl', function ($scope, $routeParams, Post, User, current_user) {
@@ -21,7 +22,7 @@ angular.module('CrowdNews')
         $scope.alerts = [];
         $scope.post = {}
         $scope.publish = false
-        $scope.post.customMenu = [
+        $scope.customMenu = [
                 [ 'quote', 'link'],
                 ['indent', 'outdent'],
                 ['bold', 'italic', 'underline','subscript', 'superscript'], 
@@ -32,6 +33,7 @@ angular.module('CrowdNews')
             if ($scope.publish) {
                 $scope.published_at = new Date();
             }
+            console.log($scope.post)
             Post.save({}, $scope.post,
                 function (data) {
                     $location.path('/');
@@ -41,6 +43,7 @@ angular.module('CrowdNews')
                     $scope.alerts.push({type: "success", msg: message});
                 },
                 function (data) {
+                    console.log(data)
                     var message = 'There was a problem posting your Coride. Please try again.'
                     console.log(message);
                     $scope.alerts.push({type: "danger", msg: message});

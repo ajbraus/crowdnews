@@ -9,7 +9,7 @@ end
 
 node(:tags) {|u| u.posts.map { |p| p.tags }.uniq.flatten }
 
-if @show_posts 
+if current_user == @user
   child(:posts) do 
     extends 'api/v1/posts/show'
   end

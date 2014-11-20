@@ -1,20 +1,30 @@
-<div class="col-sm-3">
-  <h5>Similar Stories</h5>
-  <ng-include ng-repeat="post in similar_posts" src="'mini-post.html'"></ng-include>
-</div>
-<div class="col-sm-6">
-  <h2>{{post.title}}</h2>
-  <img ng-src="{{post.pic_url}}" width="100%"/>
-  <div class='text-right'>
-    <small class='text-muted text-right'><a href='/journalist/{{post.user.id}}'>{{post.user.name}}</a> - {{post.published_at}}</small>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <ng-include src="'journalist.html'" ng-repeat="user in [post.user]"></ng-include>
+      <hr>
+      <h5>Similar Journalists</h5>
+      <ng-include ng-repeat="journalist in similar_journalists" src="'journalist.html'"></ng-include>
+    </div>
+    <div class="col-sm-8 col-sm-offset-1">
+      <h2>{{post.title}}</h2>
+      <img ng-src="{{post.pic_url}}" width="100%"/>
+      <div class='text-right'>
+        <small class='text-muted text-right'><a href='/journalist/{{post.user.id}}'>{{post.user.name}}</a> - {{post.published_at}}</small>
+      </div>
+      <div class='text-right'>
+        <div class='text-muted text-right'>{{post.tag_list}}</div>
+      </div>
+      <h4>{{post.subtitle}}</h4>
+      <p ng-bind-html="post.body | formatText"></p>
+    </div>
   </div>
-  <div class='text-right'>
-    <div class='text-muted text-right'><a href='/journalist/{{post.user.id}}'>{{post.tag_list}}</div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h5>Similar Stories</h5>
+      <div class="col-sm-4" ng-repeat="post in similar_posts | limitTo : 3">
+        <ng-include src="'mini-post.html'"></ng-include>
+      </div>
+    </div>
   </div>
-  <h4>{{post.subtitle}}</h4>
-  <p>{{post.body}}</p>
-</div>
-<div class="col-sm-3">
-  <h5>Similar Journalists</h5>
-  <ng-include ng-repeat="journalist in similar_journalists" src="'journalist.html'"></ng-include>
 </div>

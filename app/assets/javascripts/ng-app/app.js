@@ -1,5 +1,5 @@
 angular
-    .module('CrowdNews', ['ngRoute', 'ngResource', 'templates', 'ngTagsInput', 'wysiwyg.module', 'colorpicker.module', 'CrowdNews.services', 'CrowdNews.interceptors', 'CrowdNews.directives'])
+    .module('CrowdNews', ['ngRoute', 'ngSanitize', 'ngResource', 'templates', 'ngTagsInput', 'wysiwyg.module', 'colorpicker.module', 'CrowdNews.services', 'CrowdNews.interceptors', 'CrowdNews.directives', 'CrowdNews.filters'])
     
     // .constant('HOST', 'https://www.coride.co/api/v1') //PRODUCTION
     .constant('HOST', 'http://localhost:3000/api/v1') //DEV

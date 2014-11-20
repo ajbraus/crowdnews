@@ -16,6 +16,7 @@
 //= require angular-route
 //= require angular-rails-templates
 //= require angular-resource
+//= require angular-sanitize
 //= require angular-bootstrap-colorpicker
 //= require angular-wysiwyg
 //= require ng-tags-input
