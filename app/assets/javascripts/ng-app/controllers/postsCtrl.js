@@ -1,8 +1,9 @@
 angular.module('CrowdNews')
-    .controller('PostIndexCtrl', function ($scope, Post, User, current_user) {
+    .controller('PostIndexCtrl', function ($scope, Post, User, Beat, current_user) {
         var get_data = function() {
             $scope.current_user = current_user;
             $scope.top_posts = Post.query();
+            $scope.trending_beats = Beat.query();
             $scope.trending_journalists = User.query({'kind':"trending_journalists"});
             $scope.trending_posts = Post.query();
         }
@@ -31,9 +32,8 @@ angular.module('CrowdNews')
             ];
         $scope.createPost = function() {
             if ($scope.publish) {
-                $scope.published_at = new Date();
+              $scope.post.published_at = new Date();
             }
-            console.log($scope.post)
             Post.save({}, $scope.post,
                 function (data) {
                     $location.path('/');

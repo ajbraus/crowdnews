@@ -10,7 +10,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if params[:id] == params[:auth_token]
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
 
     render 'api/v1/users/show'
   end

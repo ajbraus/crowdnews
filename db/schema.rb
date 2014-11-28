@@ -11,10 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120180242) do
+ActiveRecord::Schema.define(version: 20141128071608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "beats", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "published_at"
+    t.string   "video_url"
+    t.string   "pic_url"
+  end
+
+  add_index "beats", ["user_id"], name: "index_beats_on_user_id", using: :btree
+
+  create_table "beats_users", force: true do |t|
+    t.integer "beat_id"
+    t.integer "user_id"
+  end
+
+  create_table "invitations", force: true do |t|
+    t.string   "email"
+    t.string   "handle"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -27,21 +52,22 @@ ActiveRecord::Schema.define(version: 20141120180242) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "beat_id"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "subscriptions", force: true do |t|
-    t.integer  "backer_id"
-    t.integer  "backed_user_id"
+    t.integer  "user_id"
+    t.integer  "beat_id"
     t.integer  "amount_in_cents"
     t.integer  "max_in_cents"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "subscriptions", ["backed_user_id"], name: "index_subscriptions_on_backed_user_id", using: :btree
-  add_index "subscriptions", ["backer_id"], name: "index_subscriptions_on_backer_id", using: :btree
+  add_index "subscriptions", ["beat_id"], name: "index_subscriptions_on_beat_id", using: :btree
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

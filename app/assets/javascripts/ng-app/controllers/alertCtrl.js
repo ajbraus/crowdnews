@@ -12,4 +12,4 @@ angular.module('CrowdNews')
     $scope.closeAlerts = function() {
       $scope.alerts = [];
     };
-  })
+  });

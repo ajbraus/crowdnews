@@ -4,16 +4,17 @@
     <div class="col-sm-3 col-sm-offset-1">
       <ng-include src="'journalist.html'"></ng-include>
       <hr>
-      <h4>Backers</h4>
-      <div ng-repeat="backer in user.backers">
-        {{backer.name}}
-      </div>
-    </div>
-    <div class="col-sm-7">
-      <b>Bio</b>
-      <p>{{user.bio}}</p>
+      <a href="/new/beat" class="btn btn-primary btn-block">New Beat</a>
       <hr>
-      <ng-include ng-repeat="post in user.posts" src="'post.html'"></ng-include>
+      <b>About</b>
+      <p>{{user.bio}}</p>
+    </div>
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+          <ng-include ng-repeat="beat in user.beats" src="'beat.html'"></ng-include>
+        </div>
+      </div>
     </div>
   </div>
 </div>

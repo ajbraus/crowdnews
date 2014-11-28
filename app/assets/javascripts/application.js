@@ -20,5 +20,6 @@
 //= require angular-bootstrap-colorpicker
 //= require angular-wysiwyg
 //= require ng-tags-input
+//= require ng-videosharing-embed
 //= require_tree ../templates
 //= require_tree .

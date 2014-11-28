@@ -1,0 +1,74 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <img ng-src="{{beat.pic_url}}" class="img-rounded" width="80%">
+      <h3>{{beat.name}}</h3>
+      <p class="text-muted">
+        <span ng-repeat="tag in beat.tags">
+          <a href="#">#{{tag.name}}</a>,
+        </span>
+      </p>
+      <hr>
+      <a href="#" class="btn btn-primary btn-block">Back</a>
+      <a href="#" class="btn btn-default btn-block">Follow</a>
+      <div class=''>
+        <h4>503 <br><small>Followers</small></h4>
+      </div>
+      <div class=''>
+        <h4>23 <br><small>Backers</small></h4>
+      </div>
+      <div class=''>
+        <h4>$34 <br><small>Per Story</small></h4>
+      </div>
+      <div class=''>
+        <h4>23 <br><small>Share Backers</small> </h4>
+      </div>
+      <div class=''>
+        <h4>6,000 <br><small>Estimated Audience</small> </h4>
+      </div>
+      <hr>
+      <h4>Similar Beats</h4>
+    </div>
+    <div class="col-sm-9">
+      <div class="well clearfix">
+        <h4>Stories</h4>
+        <div class="row">
+          <div class="col-sm-6">    
+            <table class="table table-hover">
+              Published
+              <tr>
+                <th>Title</th>
+                <th>Last Touched</th>
+              </tr>
+              <tr ng-repeat="post in beat.posts | filter:{ published: true }">
+                <td>{{post.title}}</td>
+                <td>{{post.updated_at}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-sm-6">
+            <table class="table table-hover">
+              Saved
+              <tr>
+                <th>Title</th>
+                <th>Last Touched</th>
+              </tr>
+              <tr ng-repeat="post in beat.posts | filter:{ published: false }">
+                <td>{{post.title}}</td>
+                <td>{{post.updated_at}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class='text-right'>
+          <a href="/new/story" class="btn btn-primary">New Story</a>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <ng-include ng-repeat="post in beat.posts" src="'post.html'"></ng-include>
+      </div>
+    </div>
+  </div>
+</div>
+      

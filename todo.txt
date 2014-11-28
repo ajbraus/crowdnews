@@ -1,22 +1,44 @@
-pre-launch splashpage - kickstarter?
-
-layout ideas: http://www.slate.com/, http://www.thrillist.com/
-
-pull quotes
+Look & Feel:
+  DONE pre-launch splashpage - kickstarter? - invite only Look like kickstarter but for news
+  DONE Request invitation
+  layout ideas: Vice.com, medium 
+  post-text - serif!
+    font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+    letter-spacing: 0.01rem;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 1.5;
 
 add register/login
   twitter login
   after login/signup does not look loggedin until refresh
   add logout method to navbar dropdown
   not responding to logging in or logging out - ideally does not reload
+  forgot password
 
-register as journalist
-create "Dashboard"
-  edit profile
-  see traction graphs dashboard - referral channels, total impressions, # backers, $ per article, # share backers
-  communicate with backers
-  saved articles
-  published articles
+create journalist
+  request invitation
+  must have added twitter
+  accept/reject
+  instantiant with a popuerri beat
+
+user-details - 
+  most up to date beats and recent articles
+  
+create a beat
+  give beats tags
+  add image to beats
+  add video to beat
+  a beat is like a kickstarter!
+
+back beats
+  setup stripe
+
+emails
+  delayed job
+  Welcome/explanation
+  when backed articles come out
 
 make cursor and text highlight brand color(
 displaying &nsbp; in text
@@ -24,63 +46,63 @@ displaying &nsbp; in text
   switch to https://github.com/fraywing/textAngular for wysiwyg 
 
 post-new.html
-  DONE flatten tag_list into a commadelimited string
-  DONE publish vs. save
-  Textwrap problem
+  add pic & video to post
+  pull quote
   http://ngmodules.org/modules/ngTagsInput
     autocomplete tags, find_or_create, add tags in API, save post.tag_list = comma delimited string
 
 post-detail.html
   make post-detail more like medium + upworthy/kickstarter project
-    - put similar articles at the bottom
     - put other articles by same author on side, put author on the side
-    - maybe post-detail is just user-detail and then autoscroll to the article
-    - maybe change the header . . .
-    - send in journalist
   add share on FB, twitter, buttons
-tag-detail.html
-
-create journalist
-  - request invitation
-    - must have added twitter
-  - accept/reject
-
-setup rails API
-  DONE resource posts
-  DONE resource users
-  DONE posts have many tags
-  devise almost
-  users are backers when they subscribe to journalists
-  Setup stripe
-
-  users follow tags
-  email digests - "immediate, daily, weekly"     
-
-add pic & video to post
-forgot password
-add delayed job
 
 nice angular validation to every form
 respond with error messages from server for every error
 
+make copy sing
+
+
+DONE users habtm beats
+DONE beats have_many posts
+DONE new beat
+
+---------------------------------------
+
+beat & post - gallery image upload
+
+mashable sparkline on articles and graph of impressions on beat
+
+syndicate your podcast, video blog, or blog from crowdnews
+  RSS feed - http://techoctave.com/c7/posts/32-create-an-rss-feed-in-rails
+
 SEO -
   '/story/first-5-words-of-the-title-and-first-3-tags'
-  '/journalist/first-last-name-first-3-tags'
+  '/journalist/username'
   rails/angular sitemap
 
-like posts
-back journalists
-journalists set goals
+share backers
+
+users follow tags
+users like posts/tags
+pull quotes
 journalist's backers and post's views sparklines
+jouranlists can set goals
+tag-detail.html
+
+digests - "immediate, daily, weekly"
+
+cdn
+
+referral channels to your articles
+
+ionic app
+
 after post is created send out notification to backers - could be weekly digest - go to ereader?
 set news alerts
 make searches into news alerts
 get news alerts from backed journalists
 
-syndicate your podcast, video blog, or blog from crowdnews
-  RSS feed - http://techoctave.com/c7/posts/32-create-an-rss-feed-in-rails
-
-Ear, Mouth, and Pen - the pen mighter
+communicate with backers - send general update
 
 DONE add bootstrap
 DONE sticky footer not sticking
@@ -107,3 +129,14 @@ Today I want to make a new post. I login, go to my profile and from there I can 
 
 
 
+
+  DONE flatten tag_list into a commadelimited string
+  DONE publish vs. save
+  DONE Textwrap problem
+
+  setup rails API
+  DONE resource posts
+  DONE resource users
+  DONE posts have many tags
+  DONE users are backers when they subscribe to journalists
+  DONE devise

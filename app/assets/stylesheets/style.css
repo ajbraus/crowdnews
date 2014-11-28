@@ -16,6 +16,43 @@
 }
 
 
+.jumbo {
+  width: 75%;
+  margin: 0 auto;
+  padding:150px 0px;
+  color: white;
+  text-align: center;
+}
+
+.jumbo-xs {
+  width: 75%;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  padding-top: 45px;
+  padding-bottom: 85px;
+}
+
+.jumboh1 {
+  font-weight: bold;
+  font-family: helvetica;
+  font-size: 55px;
+  margin-top: -20px;
+}
+
+.iphone-background {
+  background-image: url("iphone.jpeg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position-y: -90px;
+}
+
+.clock {
+  position: absolute;
+  right:15px;
+  font-size:120%;
+}
 .insane {
   font-family:'heavyweight';
   font-size:1000%;
@@ -23,8 +60,17 @@
 
 .top-nav {
   position: absolute;
-  top: -11px;
   right: 15px;
+}
+
+.navbar-nav>li>a {
+padding-top: 5px;
+padding-bottom: 5px;
+}
+
+.navbar-form {
+padding: 0px 15px;
+margin-top: 4px;
 }
 
 .footer {
@@ -39,12 +85,13 @@ ul {
 }
 
 .post-body {
-  height:500px !important;
+  height:350px !important;
   border:none;
   width:100%;
   border-left:1px solid #eee;
   margin-top:10px;
   padding:10px;
+  font-size:110%;
 }
 
 .post-title {
@@ -53,6 +100,10 @@ ul {
   font-size: 35px;
   border: none;
 }
+.title-text {
+  font-size: 35px;
+}
+
 .post-subtitle {
   width: 100%;
   padding: 5px 9px 0 9px;
@@ -60,10 +111,45 @@ ul {
   font-weight: bold;
   border: none;
 }
+.subtitle-text {
+  font-size: 18px;
+  font-weight: bold;
+}
 
-.post-body:focus, .post-subtitle:focus, .post-title:focus { 
+.post-url {
+  width: 100%;
+  padding: 5px 9px 0 9px;
+  font-size: 14px;
+  border: none;
+}
+
+.indent {
+  text-indent: 20px;
+}
+
+@media(min-width:768px){
+  .body-text {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+  }
+}
+
+.body-text {
+  font-size:110%;
+  word-wrap: break-word; /*normal*/
+}
+
+.post-body:focus, .post-subtitle:focus, .post-title:focus, .post-url:focus { 
   border-bottom: 1px solid #eee;
   outline: none; 
 }
 
+.border-bottom {
+  border-bottom: 1px solid #eee;
+}
 
+.nav-below {
+  position: relative;
+  top: 45px;
+}

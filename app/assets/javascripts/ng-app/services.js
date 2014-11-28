@@ -8,6 +8,14 @@ angular.module('CrowdNews.services', [])
     })
   })
 
+  .factory('Invitation', function ($resource, HOST) {
+    return $resource(HOST + '/invitations/:id', { id: '@id' })
+  })
+
+  .factory('Beat', function ($resource, HOST) {
+    return $resource(HOST + '/beats/:id', { id: '@id' })
+  })
+
   .factory('current_user', function (AuthService, User) {
     if (AuthService.isLoggedIn()) {
       var current_user = JSON.parse(localStorage.getItem("current_user"));

@@ -1,3 +1,4 @@
+<br>
 <div class="container">
   <div class="row">
     <div class="col-sm-3">
@@ -6,7 +7,7 @@
       <h5>Similar Journalists</h5>
       <ng-include ng-repeat="journalist in similar_journalists" src="'journalist.html'"></ng-include>
     </div>
-    <div class="col-sm-8 col-sm-offset-1">
+    <div class="col-sm-6">
       <h2>{{post.title}}</h2>
       <img ng-src="{{post.pic_url}}" width="100%"/>
       <div class='text-right'>
@@ -17,6 +18,12 @@
       </div>
       <h4>{{post.subtitle}}</h4>
       <p ng-bind-html="post.body | formatText"></p>
+    </div>
+    <div class="col-sm-3">
+      <h5>Beat</h5>
+      <ng-include ng-repeat="beat in [post.beat]" src="'beat.html'"></ng-include>
+      <hr>
+      <h5>Similar Beats</h5>
     </div>
   </div>
   <div class="row">

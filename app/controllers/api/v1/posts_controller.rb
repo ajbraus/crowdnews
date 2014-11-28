@@ -61,7 +61,6 @@ class Api::V1::PostsController < ApplicationController
 
   def post_params
     params[:post][:tag_list] = params[:tag_list].map { |t| t["text"] }.join(", ") if params[:tag_list].present?
-
-    params.require(:post).permit(:title, :subtitle, :body, :published_at, :video_url, :pic_url, :tag_list)
+    params.require(:post).permit(:title, :subtitle, :body, :published_at, :video_url, :pic_url, :tag_list, :beat_id)
   end
 end

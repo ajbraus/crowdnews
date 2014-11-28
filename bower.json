@@ -7,7 +7,8 @@
       "angular-resource": "latest",
       "angular-sanitize": "latest",
       "angular-wysiwyg": "latest",
-      "ng-tags-input": "latest"
+      "ng-tags-input": "latest",
+      "ng-videosharing-embed": "latest"
     }
   },
   "vendor": {

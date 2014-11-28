@@ -1,43 +1,42 @@
 <div class="container">
-  <div class='col-xs-12 col-sm-10 col-sm-offset-1'>
-    <form ng-submit="createPost()">
-      <input type='text' ng-model="post.title" class='post-title' placeholder="Title" autofocus='true' title-case></input>
-      <input type='text' ng-model="post.subtitle" class='post-subtitle' placeholder="Subtitle" title-case></input>
-      <div class="text-right">
-        <a href="#" ng-click="showPicUrl = ! showPicUrl">Add Picture</a> | 
-        <a href="#" ng-click="showVidUrl = ! showVidUrl">Add Video</a>
-      </div>
-      <div ng-show="showPicUrl">
-        <label>Picture URL</label>
-        <input type='text' ng-model="post.pic_url" class='form-control' placeholder="Picture URL">
-      </div>
-      <div ng-show="showVidUrl">
-        <label>Video URL</label>
-        <input type='text' ng-model="post.video_url" class='form-control' placeholder="Youtube URL">
-      </div>
-      <br>
-      <wysiwyg 
-        textarea-id="question" 
-        textarea-class="post-body"  
-        textarea-height="200px" 
-        textarea-name="textareaQuestion" 
-        textarea-required 
-        ng-model="post.body" 
-        enable-bootstrap-title="true" 
-        textarea-menu="{{customMenu}}" 
-        placeholder="Body (200 words minimum)">
-      </wysiwyg>
-      <tags-input ng-model="post.tag_list" placeholder="Add Hashtags - 7 Max">
-          <!-- <auto-complete source="loadTags($query)"></auto-complete> -->
-      </tags-input>
-      <button type="submit" class='btn btn-primary'>
-        <span ng-if="!publish">Save</span>
-        <span ng-if="publish">Publish</span>
-      </button>
-      <label for="publish">
-        <input type="checkbox" id="publish" ng-model="publish" />
-        Publish
-      </label>
-    </form>
+  <div class="row">
+    <div class="col-sm-3">
+      <ng-include src="'journalist.html'" ng-repeat="user in [current_user]"></ng-include>
+      <hr>
+      <embed-video href="{{post.video_url}}" ng-show="post.video_url" width="100%"></embed-video>
+    </div>
+    <div class="col-sm-8 col-sm-offset-1">
+      <form ng-submit="createPost()">
+        <input type='text' ng-model="post.title" class='post-title' placeholder="Title" autofocus='true' title-case></input>
+        <img ng-src="{{post.pic_url}}" ng-show="post.pic_url" width="100%"/>
+        <input type='text' ng-model="post.subtitle" class='post-subtitle' placeholder="Subtitle" title-case></input>
+        <input type='text' ng-model="post.pic_url" class='post-url' placeholder="Picture URL">
+        <input type='text' ng-model="post.video_url" class='post-url' placeholder="Youtube URL">
+        <br>
+        <br>
+        <wysiwyg 
+          textarea-id="question" 
+          textarea-class="post-body"  
+          textarea-height="200px" 
+          textarea-name="textareaQuestion" 
+          textarea-required 
+          ng-model="post.body" 
+          enable-bootstrap-title="true" 
+          textarea-menu="{{customMenu}}" 
+          placeholder="Body (200 words minimum)">
+        </wysiwyg>
+        <tags-input ng-model="post.tag_list" placeholder="Add Hashtags - 7 Max">
+            <!-- <auto-complete source="loadTags($query)"></auto-complete> -->
+        </tags-input>
+        <button type="submit" class='btn btn-primary'>
+          <span ng-if="!publish">Save</span>
+          <span ng-if="publish">Publish</span>
+        </button>
+        <label for="publish">
+          <input type="checkbox" id="publish" ng-model="publish" />
+          Publish
+        </label>
+      </form>
+    </div>
   </div>
 </div>
