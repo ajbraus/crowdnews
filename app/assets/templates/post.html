@@ -1,10 +1,9 @@
 <a href='/story/{{post.id}}'>
-  <h3>{{post.title}}</h3>
   <img ng-src="{{post.pic_url}}" width="100%" ng-show="post.pic_url"/>
+  <h3>{{post.title}}</h3>
 </a>
-<div class='text-right'>
+<div class='text-left'>
   <small class='text-muted text-right'><a href='/journalist/{{post.user.id}}'>{{post.user.name}}</a> - {{post.published_at}}</small>
 </div>
-<h5>{{post.subtitle}}</h5>
 <p ng-bind-html="post.body | formatText"></p>
 <hr>

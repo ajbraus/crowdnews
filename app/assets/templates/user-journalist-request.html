@@ -1,0 +1,20 @@
+<br>
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+    <form ng-submit="createJournalist">
+      <div class="form-group">
+        <label>Twitter Handle</label>
+        <div class="input-group">
+          <div class="input-group-addon">@</div>
+          <input ng-model="current_user.handle" required type="text" class="form-control" id="exampleInputEmail2" placeholder="gonzzzo">
+        </div>
+      </div>
+      <label>About You (200 words max)</label>
+      <textarea ng-model="current_user.bio" class="form-control" required></textarea>
+      <br>
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary">Submit Request</button>
+      </div>
+    </form>
+  </div>
+</div>

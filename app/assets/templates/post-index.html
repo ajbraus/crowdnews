@@ -3,14 +3,26 @@
     <h5>Trending Stories</h5>
     <ng-include ng-repeat="post in trending_posts" src="'mini-post.html'"></ng-include>
   </div>
-  <div class="col-sm-6">
-    <h5>Top Stories</h5>
-    <ng-include ng-repeat="post in top_posts" src="'post.html'"></ng-include>
-  </div>
-  <div class="col-sm-3">
-    <h5>Trending Beats</h5>
-    <div ng-repeat="beat in trending_beats">
-      <ng-include src="'beat.html'"></ng-include>
+  <div class="col-sm-9">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="row">
+          <div class='col-sm-6'>
+            <h5>Top Tags</h5>
+            <ng-include ng-repeat="tag in top_posts" src="'tag.html'"></ng-include>
+          </div>
+          <div class="col-sm-6">
+            <h5>Top Stories</h5>
+            <ng-include ng-repeat="post in top_posts" src="'post.html'"></ng-include>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <h5>Trending Beats</h5>
+        <div ng-repeat="beat in trending_beats">
+          <ng-include src="'beat.html'"></ng-include>
+        </div>
+      </div>
     </div>
   </div>
 </div>

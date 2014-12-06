@@ -1,14 +1,38 @@
-Look & Feel:
-  DONE pre-launch splashpage - kickstarter? - invite only Look like kickstarter but for news
-  DONE Request invitation
-  layout ideas: Vice.com, medium 
-  post-text - serif!
-    font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;
-    letter-spacing: 0.01rem;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 22px;
-    line-height: 1.5;
+fix current_user to use $rootScope
+
+create journalist
+  request invitation to become content producer
+  Things to improve your chances:
+    add twitter handle
+    back some beats
+    Good beat/article ideas
+  create User.accept/reject methods
+    instantiant with a sample unpublished personal beat
+    send email saying they are accepted/rejected
+
+post-new/edit
+  http://ngmodules.org/modules/ngTagsInput
+    autocomplete tags, find_or_create, add tags in API, save post.tag_list = comma delimited string
+
+beat-new/edit
+  tags
+  add video to beat
+  publish/unpublish beat
+  rewards - what rewards could a journalist give? Extra footage, extra pictures, extra editorials, 
+  risks and challenges
+  goals
+  financial goal
+
+pledges 
+
+beat.html
+  thumbnail images are embedded video or image
+  manage, track, and communicate with your supporters
+  thermometer to goal
+  support one-time donations, & content pledges.
+
+user-details - 
+  most up to date beats and recent articles
 
 add register/login
   twitter login
@@ -17,49 +41,69 @@ add register/login
   not responding to logging in or logging out - ideally does not reload
   forgot password
 
-create journalist
-  request invitation
-  must have added twitter
-  accept/reject
-  instantiant with a popuerri beat
-
-user-details - 
-  most up to date beats and recent articles
-  
-create a beat
-  give beats tags
-  add image to beats
-  add video to beat
-  a beat is like a kickstarter!
+post-detail.html
+  add share on FB, twitter, buttons
 
 back beats
-  setup stripe
+  setup stripe - https://github.com/laurihy/angular-payments
+    put holds and charge at the end of the month
+  setup paypal
+    put holds and charge at the end of the month
+  Amazon payments? - more confidence? 
+  payment questions
+    IMPORTANT
+    Kickstarter does not guarantee projects or investigate a creator's ability to complete their project. It is the responsibility of the project creator to complete their project as promised, and the claims of this project are theirs alone.
+    Learn more about accountability
+    FREQUENTLY ASKED QUESTIONS
+     When is my card charged?
+     So I'm only charged if funding succeeds?
+     What can others see about my pledge?
+     What if I want to change my pledge?
+     If this project is funded, how do I get my reward?
+
+Look & Feel:
+  splashpage 
+    benefits
+    letter from the founder
+    a few sample beats
 
 emails
   delayed job
   Welcome/explanation
+  when they back a beat
   when backed articles come out
-
-make cursor and text highlight brand color(
-displaying &nsbp; in text
-  format and wrap text
-  switch to https://github.com/fraywing/textAngular for wysiwyg 
-
-post-new.html
-  add pic & video to post
-  pull quote
-  http://ngmodules.org/modules/ngTagsInput
-    autocomplete tags, find_or_create, add tags in API, save post.tag_list = comma delimited string
-
-post-detail.html
-  make post-detail more like medium + upworthy/kickstarter project
-    - put other articles by same author on side, put author on the side
-  add share on FB, twitter, buttons
+  when they are accepted/rejected
+  when they request to be a journalist
+  when they are invited/nominated
+  
+security
+  don't show non-journalist profiles
+  don't allow editing if not your record
+  make sure there is a difference between journalists and non journalists
 
 nice angular validation to every form
+make cursor and text highlight brand color(
+make copy sing
+
+follow beats - immediate updates, daily digests, weekly digests, monthly digests
+
+-----------------------------------------------------------
+
+discoverablility
+  tags
+  search
+  recommendations
+    beats
+    articles
+    journalists
+
+post-details.html
+  add pic & video to post
+  pull quote
+  
 respond with error messages from server for every error
 
-make copy sing
+
 
 
 DONE users habtm beats
@@ -140,3 +184,11 @@ Today I want to make a new post. I login, go to my profile and from there I can 
   DONE posts have many tags
   DONE users are backers when they subscribe to journalists
   DONE devise
+
+  DONE pre-launch splashpage - kickstarter? - invite only Look like kickstarter but for news
+  DONE Request invitation
+  DONE redo layout like: 
+    DONE beats = kickstarter campaigns
+    DONE story-thumbnails = Vice.com
+    DONE tag-thumbnails = Huffpo
+    DONE stories = medium

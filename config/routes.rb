@@ -8,7 +8,11 @@ Rails.application.routes.draw do
       resources :beats, except: [:new, :edit]
       resources :invitations, except: [:new, :edit, :update, :show, :index]
       devise_for :users, :controllers => { :sessions => "api/v1/sessions", :registrations => "api/v1/registrations", :passwords => "api/v1/passwords"}
-      resources :users, only: [:show, :index, :update]
+      resources :users, only: [:show, :index, :update] do
+        post :accept
+        post :reject
+        post :request
+      end
     end
   end
 

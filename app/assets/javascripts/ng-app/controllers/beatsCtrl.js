@@ -1,14 +1,11 @@
 angular.module('CrowdNews')
-  .controller('BeatDetailsCtrl', function ($scope, $routeParams, Beat, current_user) {
-    $scope.current_user = current_user;
-
+  .controller('BeatDetailsCtrl', function ($scope, $routeParams, Beat) {
     Beat.get({ id: $routeParams.beatId }, function (data) {
       $scope.beat = data
     })
   })
 
-  .controller('NewBeatCtrl', function ($scope, $location, Beat, current_user) {
-    $scope.current_user = current_user;
+  .controller('NewBeatCtrl', function ($scope, $location, Beat) {
     $scope.beat = {};
     $scope.createBeat = function() {
       Beat.save({}, $scope.beat, 

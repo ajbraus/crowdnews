@@ -1,5 +1,5 @@
 angular.module('CrowdNews')
-  .controller('InvitationCtrl', function ($scope, $rootScope, $timeout, Invitation) {
+  .controller('InvitationCtrl', function ($scope, $rootScope, $location, $timeout, Invitation, AuthService) {
     $scope.splash = true;
     $scope.alerts = [];
     $scope.invitation = {};
@@ -16,4 +16,9 @@ angular.module('CrowdNews')
         }
       );
     }
+
+    $rootScope.$on('app.loggedIn', function() {
+      console.log('blah')
+      $location.path('/stories');
+    })
   });

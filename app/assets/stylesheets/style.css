@@ -15,6 +15,13 @@
     background: rgba(200, 200, 200, .5);
 }
 
+.btn {
+  border-radius: 0;
+}
+
+.brand {
+  margin-top:10px;
+}
 
 .jumbo {
   width: 75%;
@@ -63,14 +70,10 @@
   right: 15px;
 }
 
-.navbar-nav>li>a {
-padding-top: 5px;
-padding-bottom: 5px;
-}
-
-.navbar-form {
-padding: 0px 15px;
-margin-top: 4px;
+.navbar-default {
+  background-color: darkorange;
+  border-color: none;
+  border-radius: 0;
 }
 
 .footer {
@@ -149,7 +152,16 @@ ul {
   border-bottom: 1px solid #eee;
 }
 
-.nav-below {
+.paypal-button {
+  background: url('paypal_button.png') no-repeat 0 0;
+  width: 186px;
+  height: 41px;
+  display: inline-block;
+  text-indent: -9999px;
+  background-size: 180px;
+  background-position-y: -2px;
   position: relative;
-  top: 45px;
+  top: 16px;
 }
+
+.paypal-button:hover { background-position: 0 -42px; }

@@ -1,5 +1,6 @@
 <a href="/story/{{post.id}}">
   <h5>{{post.title}}</h5>
 </a>
-<p>{{post.subtitle}}<p/>
+<b><p>{{post.subtitle}}<p/></b>
+<p ng-bind-html="post.body | formatText"></p>
 <hr>

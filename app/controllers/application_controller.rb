@@ -53,7 +53,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user = User.find_by(auth_token: params[:auth_token])
-    @current_user ||= warden.authenticate(:scope => :user)
+    return User.find_by(auth_token: params[:auth_token])
   end
 end

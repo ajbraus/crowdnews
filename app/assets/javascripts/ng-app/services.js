@@ -12,21 +12,12 @@ angular.module('CrowdNews.services', [])
     return $resource(HOST + '/invitations/:id', { id: '@id' })
   })
 
-  .factory('Beat', function ($resource, HOST) {
-    return $resource(HOST + '/beats/:id', { id: '@id' })
+  .factory('Subscription', function ($resource, HOST) {
+    return $resource(HOST + '/invitations/:id', { id: '@id' })
   })
 
-  .factory('current_user', function (AuthService, User) {
-    if (AuthService.isLoggedIn()) {
-      var current_user = JSON.parse(localStorage.getItem("current_user"));
-      User.get({ id: localStorage.getItem("crowdnews_auth_token") }, function(data) {
-        localStorage.setItem('current_user', JSON.stringify(data));
-        var current_user = data;
-      });
-      return current_user
-    } else {
-      return null
-    }
+  .factory('Beat', function ($resource, HOST) {
+    return $resource(HOST + '/beats/:id', { id: '@id' })
   })
 
   .factory('User', function ($resource, HOST) {
@@ -63,5 +54,37 @@ angular.module('CrowdNews.services', [])
        $rootScope.$broadcast('app.loggedOut');
       }
     }
-  });
+  })
+
+  .factory('Alert', [
+    '$rootScope', '$timeout', function($rootScope, $timeout) {
+      var alertService;
+      $rootScope.globalAlerts = [];
+      return alertService = {
+        add: function(type, msg, timeout) {
+          $rootScope.globalAlerts.push({
+            type: type,
+            msg: msg,
+            close: function() {
+              return alertService.closeAlert(this);
+            }
+          });
+          if (timeout) { 
+            $timeout(function(){ 
+              alertService.closeAlert(this); 
+            }, timeout); 
+          }
+        },
+        closeAlert: function(alert) {
+          return this.closeAlertIdx($rootScope.globalAlerts.indexOf(alert));
+        },
+        closeAlertIdx: function(index) {
+          return $rootScope.globalAlerts.splice(index, 1);
+        },
+        clear: function(){
+          $rootScope.globalAlerts = [];
+        }
+      };
+    }
+  ]);
 

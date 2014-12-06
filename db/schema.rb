@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128071608) do
+ActiveRecord::Schema.define(version: 20141128200024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(version: 20141128071608) do
     t.datetime "updated_at"
     t.string   "auth_token"
     t.text     "bio"
-    t.string   "earnings_range"
     t.boolean  "terms"
     t.string   "digest",                 default: "Immediate"
     t.string   "avatar_file_name"
@@ -114,6 +113,7 @@ ActiveRecord::Schema.define(version: 20141128071608) do
     t.datetime "invited_at"
     t.datetime "rejected_at"
     t.datetime "accepted_at"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

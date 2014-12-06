@@ -1,7 +1,6 @@
 angular.module('CrowdNews')
-    .controller('PostIndexCtrl', function ($scope, Post, User, Beat, current_user) {
+    .controller('PostIndexCtrl', function ($scope, Post, User, Beat) {
         var get_data = function() {
-            $scope.current_user = current_user;
             $scope.top_posts = Post.query();
             $scope.trending_beats = Beat.query();
             $scope.trending_journalists = User.query({'kind':"trending_journalists"});
@@ -12,14 +11,13 @@ angular.module('CrowdNews')
         get_data();
     })
 
-    .controller('PostDetailsCtrl', function ($scope, $routeParams, Post, User, current_user) {
-        $scope.current_user = current_user;
+    .controller('PostDetailsCtrl', function ($scope, $routeParams, Post, User) {
         $scope.post = Post.get({ id: $routeParams.postId });
         $scope.similar_posts = Post.query(); // Post.query({ post_id: $routeParams.postId });
         $scope.similar_journalists = User.query(); // User.query({ post_id: $routeParams.postId });
     })
 
-    .controller('NewPostCtrl', function ($scope, $location, Post, current_user) {
+    .controller('NewPostCtrl', function ($scope, $location, Post) {
         $scope.alerts = [];
         $scope.post = {}
         $scope.publish = false
@@ -51,8 +49,7 @@ angular.module('CrowdNews')
         }
     })
 
-    .controller('PostDetailsCtrl', function ($scope, $routeParams, Post, User, current_user) {
-        $scope.current_user = current_user;
+    .controller('PostDetailsCtrl', function ($scope, $routeParams, Post, User) {
         $scope.post = Post.get({ id: $routeParams.postId });
         $scope.similar_posts = Post.query(); // Post.query({ post_id: $routeParams.postId });
         $scope.similar_journalists = User.query(); // User.query({ post_id: $routeParams.postId });

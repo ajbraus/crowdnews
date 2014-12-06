@@ -1,5 +1,5 @@
 object @user
-attributes :id, :name, :bio, :earnings_range
+attributes :id, :name, :bio, :accepted_at, :rejected_at, :requested_at, :admin
 
 node(:pic_url) {|u| u.avatar.url }
 

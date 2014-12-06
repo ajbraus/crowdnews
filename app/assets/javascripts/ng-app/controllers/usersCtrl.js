@@ -1,19 +1,30 @@
 angular.module('CrowdNews')
-    .controller('UserDetailsCtrl', function ($scope, $routeParams, User, current_user) {
-        $scope.current_user = current_user;
+    .controller('UserDetailsCtrl', function ($scope, $routeParams, User) {
         $scope.user = User.get({id: $routeParams.userId })
     })
 
-    .controller('UserIndexCtrl', function ($scope, User, current_user) {
-        $scope.current_user = current_user;
+    .controller('UserIndexCtrl', function ($scope, User) {
         $scope.users = User.query();
     })
 
-    .controller('UserDashboardCtrl', function ($scope, User, current_user) {
-      $scope.current_user = current_user;
+    .controller('NewJournalistCtrl', function ($scope, User) {
+     
+      $scope.newRequest = function() {
+        $scope.current_user.requested_at = +new Date;
+        User.update({}, $scope.current_user,
+          function(data) {
+            console.log("Journalist Request Submitted");
+          },
+          function(data) {
+            console.log("There was a Problem Submitting Your Journalist Request");
+          }
+        );
+      }
+    })
 
+    .controller('UserDashboardCtrl', function ($rootScope, $scope, User) {
       $scope.updateAccount = function() {
-        User.update({}, $scope.current_user, 
+        User.update({}, $rootScope.current_user, 
           function (data) {
             var message = 'Updated Account Successfully'
             console.log(message);

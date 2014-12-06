@@ -1,0 +1,54 @@
+<div class="col-sm-4"> 
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Backers (# / $$$)</h3>
+    </div>
+    <table class="table table-bordered user-stats">
+      <thead>
+        <tr>
+          <th class="text-center">Two Months Ago</th>
+          <th class="text-center">Last Month</th>
+          <th class="text-center">This Month</th>
+          <th class="text-center">This Week</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>30</td>
+          <td>10</td>
+          <td>30</td>
+          <td>10</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  New beats<br>
+  New articles
+</div>
+<div class="col-sm-8">
+  <h4>Journalist Requests</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th width="3%"></th>
+        <th width="10%">When</th>
+        <th width="10%">Name</th>
+        <th width="10%">Handle</th>
+        <th width="20%">Bio</th>
+        <th width="1%"></th>
+        <th width="1%"></th>
+      </tr>
+    </thead>
+    <tbody class="table-bordered">
+      <tr ng-hide="journalist.accepted_at || journalist.rejected_at" ng-repeat="journalist in journalists | orderBy: 'requested_at'">
+        <td></td>
+        <td>{{journalist.requested_at}}</td>
+        <td>{{journalist.name}}</td>
+        <td>{{journalist.handle}}</td>
+        <td>{{journalist.bio}}</td>
+        <td><a href="#" ng-click="judge(true, journalist.id)" class="btn btn-xs">Accept</a></td>
+        <td><a href="#" ng-click="judge(false, journalist.id)" class="btn btn-xs">Reject</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
