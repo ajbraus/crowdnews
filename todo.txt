@@ -1,5 +1,3 @@
-fix current_user to use $rootScope
-
 create journalist
   request invitation to become content producer
   Things to improve your chances:

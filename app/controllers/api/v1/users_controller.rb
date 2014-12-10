@@ -11,7 +11,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    binding.pry
     if params[:id] == params[:auth_token]
       @user = current_user
     else
@@ -39,15 +38,15 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  def request
-    if current_user.admin?
-      @user = User.find(params[:id])
-      @user.update_attributes(requested_at: Time.now) 
-      return render :status => 200, :json => { :success => true }
-    else
-      return render :status => 403, :json => { :success => false }
-    end
-  end
+  # def request
+  #   if current_user.admin?
+  #     @user = User.find(params[:id])
+  #     @user.update_attributes(requested_at: Time.now) 
+  #     return render :status => 200, :json => { :success => true }
+  #   else
+  #     return render :status => 403, :json => { :success => false }
+  #   end
+  # end
 
   def accept
     if current_user.admin?
