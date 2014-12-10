@@ -1,3 +1,7 @@
+medium.js or medium-editor
+twitter auth
+pledge to beats
+
 create journalist
   request invitation to become content producer
   Things to improve your chances:
@@ -84,6 +88,15 @@ make cursor and text highlight brand color(
 make copy sing
 
 follow beats - immediate updates, daily digests, weekly digests, monthly digests
+
+----------------------------------------
+
+journalists:
+  universal basic income: 
+    Dylan Matthews
+  Libertarian stuff:
+    J
+
 
 -----------------------------------------------------------
 
